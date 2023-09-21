@@ -8,8 +8,7 @@
         public DateTime DateAdded { get; set; }
         public bool IsMain { get; set; }
         public string PublicId { get; set; }
-        public string CıtyId { get; set; }
-
+        public int CityId { get; set; }
         public City City { get; set; }
     }
 }
