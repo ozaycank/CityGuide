@@ -31,5 +31,19 @@ namespace CityGuide.Controllers
             return Ok();
             
         }
+        [HttpGet]
+        [Route("detail")]
+        public ActionResult GetCityById(int  id ) {
+            var city  = _appRepository.GetCity(id);
+            var cityToReturn = _mapper.Map<CityForDetailDto>(city);
+            return Ok(cityToReturn);
+            
+        }
+        [HttpGet]
+        [Route("Photos")]
+        public ActionResult GetPhotosByCity(int CityId) {
+            var photos = _appRepository.GetPhotosByCity(CityId);
+            return Ok(photos);
+        }
     }
 }
