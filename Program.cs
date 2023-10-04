@@ -55,7 +55,7 @@ builder.Services.AddSingleton(mapperConfig.CreateMapper());
 
 builder.Services.AddScoped<IAppRepository, AppRepository>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
-
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
