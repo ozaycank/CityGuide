@@ -84,12 +84,13 @@ namespace CityGuide.Controllers
 
 
         }
-        [HttpGet("{id}", Name ="GetPhoto" )]
-        public ActionResult GetPhoto(int id)
+        [HttpGet("{photoId}", Name = "GetPhoto")]
+        public ActionResult GetPhoto(int photoId)
         {
-            var photoFromDb  = _appRepository.GetPhoto(id);
+            var photoFromDb = _appRepository.GetPhoto(photoId);
             var photo = _mapper.Map<PhotoForReturnDto>(photoFromDb);
             return Ok(photo);
         }
+
     }
 }

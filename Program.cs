@@ -61,15 +61,19 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors(builder =>
+    {
+        builder.AllowAnyHeader()
+               .AllowAnyMethod()
+               .WithOrigins("http://localhost:4200")
+               .AllowCredentials();
+    });
+
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseCors(builder =>
-{
-    builder.AllowAnyHeader()
-           .AllowAnyMethod()
-           .AllowAnyOrigin();
-});
+
+
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.UseAuthentication();
